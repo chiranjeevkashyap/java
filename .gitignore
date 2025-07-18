@@ -1,0 +1,28 @@
+# 🔧 IDE-specific files
+.idea/
+.vscode/
+
+# 🗄️ IntelliJ project metadata
+/shelf/
+/workspace.xml
+
+# 🌐 HTTP client requests
+/httpRequests/
+
+# 🧩 Maven settings (system/environment-specific)
+/mavenHomeManager.xml
+
+# 🧵 Maven build output
+/target/
+
+# 🛢️ Database configuration
+database.properties
+
+# 🧬 Datasource files
+/dataSources/
+/dataSources.local.xml
+
+# 🚫 Catch-all for nested IDE folders (redundant if .idea and .vscode already included)
+*/.idea/
+*/.vscode/
+*/target/
