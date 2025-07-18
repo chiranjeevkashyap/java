@@ -17,7 +17,7 @@ public enum Query {
         if (path.trim().isEmpty()) {
             throw new IllegalArgumentException("Path must not be empty");
         }
-        this.path = Paths.get("src/main/resources/sql/" + path);
+        this.path = Paths.get("java/src/main/resources/sql/" + path);
     }
 
     public String getQuery() throws IOException {

@@ -18,7 +18,7 @@ public class Main {
                 PreparedStatement statement = connection.prepareStatement(Query.SELECT_EMP.getQuery());
                 ResultSet resultSet = statement.executeQuery()) {
             while (resultSet.next()) {
-                Employee employee = new Employee();
+                Employee employee = Employee.getInstance();
                 employee.id = resultSet.getLong("id");
                 employee.name = resultSet.getString("name");
                 employee.age = resultSet.getInt("age");
