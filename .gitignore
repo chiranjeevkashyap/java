@@ -23,6 +23,4 @@ database.properties
 /dataSources.local.xml
 
 # 🚫 Catch-all for nested IDE folders (redundant if .idea and .vscode already included)
-.idea/
-.vscode/
-*/target/
+target/

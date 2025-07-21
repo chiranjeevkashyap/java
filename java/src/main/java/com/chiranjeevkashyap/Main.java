@@ -1,6 +1,5 @@
 package com.chiranjeevkashyap;
 
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -15,8 +14,8 @@ import com.chiranjeevkashyap.query.Query;
 public class Main {
     public static void main(String[] args) {
         try (Connection connection = getConnection();
-                PreparedStatement statement = connection.prepareStatement(Query.SELECT_EMP.getQuery());
-                ResultSet resultSet = statement.executeQuery()) {
+             PreparedStatement statement = connection.prepareStatement(Query.SELECT_EMP.read());
+             ResultSet resultSet = statement.executeQuery()) {
             while (resultSet.next()) {
                 Employee employee = Employee.getInstance();
                 employee.id = resultSet.getLong("id");
@@ -24,12 +23,13 @@ public class Main {
                 employee.age = resultSet.getInt("age");
                 System.out.println(employee);
             }
-        } catch (SQLException | IOException e) {
-            throw new RuntimeException(e);
+            System.out.println("SELECT_NAME_: " + Query.SELECT_NAME_.read());
+        } catch (SQLException e) {
+            System.out.println("SQLException: " + e.getMessage());
         }
     }
 
-    public static Connection getConnection() throws IOException, SQLException {
+    public static Connection getConnection() throws SQLException {
         Properties props = DBConfig.load();
         String url = props.getProperty("db.url");
         String user = props.getProperty("db.username");
